@@ -1,5 +1,11 @@
 <h1 id="page-header">URL Shortener</h1>
 
 <form id="url-shortening-form" method="post">
-
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" class="submit" value="submit">
 </form>
+
+{% if session_object %}
+    your shortened url: <a target="_blank" href="{{ session_object.user_url }}">{{ request.get_host }}/{{ session_object.pk }}</a>
+{% endif %}

@@ -20,5 +20,6 @@ from url import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('/<id>', views.page_redirect, name='page_redirect'),
     path('admin/', admin.site.urls),
 ]
