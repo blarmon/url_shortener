@@ -18,6 +18,6 @@ def index(request):
     context.update({'form': form})
     return render(request, 'url/index.html', context)
 
-def page_redirect(request, id):
-    redirect_url = URL.objects.get(pk=id).user_url
+def page_redirect(request, number):
+    redirect_url = URL.objects.get(pk=number).user_url
     return redirect(redirect_url)

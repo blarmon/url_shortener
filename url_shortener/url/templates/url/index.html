@@ -1,11 +1,22 @@
-<h1 id="page-header">URL Shortener</h1>
+<head>
+    <title>url shortener</title>
+</head>
 
-<form id="url-shortening-form" method="post">
-    {% csrf_token %}
-    {{ form }}
-    <input type="submit" class="submit" value="submit">
-</form>
+<body>
+    <h1 id="page-header">URL Shortener</h1>
 
-{% if session_object %}
-    your shortened url: <a target="_blank" href="{{ session_object.user_url }}">{{ request.get_host }}/{{ session_object.pk }}</a>
-{% endif %}
+    <form id="url-shortening-form" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div>{{ field.errors }}</div>
+            <div>{{ field.label_tag }}</div>
+            <div>{{ field }}</div>
+            <div>{{ field.help_text }}</div>
+        {% endfor %}
+        <input type="submit" class="submit" value="submit">
+    </form>
+
+    {% if session_object %}
+        your shortened url: <a id="shortened_url" target="_blank" href="{{ session_object.pk }}">{{ request.get_host }}/{{ session_object.pk }}</a>
+    {% endif %}
+</body>

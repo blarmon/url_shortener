@@ -19,5 +19,5 @@ class URLsTestCase(TestCase):
         Test that the root of the site resolves to the
         correct view function
         """
-        root = resolve('/1')
+        root = resolve('/1/')
         self.assertEqual(root.func, page_redirect)

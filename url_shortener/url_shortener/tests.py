@@ -41,7 +41,7 @@ class UserTestCase(LiveServerTestCase):
         shortened_url = self.browser.find_element_by_id('shortened_url')
 
         # they click on their shortened url and are taken to that page.
-
         shortened_url.click()
-
-        self.assertEqual(self.browser.current_url, self.live_server_url + 'https://www.google.com/')
+        new_tab = self.browser.window_handles[1]
+        self.browser.switch_to_window(new_tab)
+        self.assertEqual(self.browser.current_url, 'https://www.google.com/')

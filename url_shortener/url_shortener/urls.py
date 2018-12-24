@@ -19,7 +19,7 @@ from django.urls import path
 from url import views
 
 urlpatterns = [
+    path('<int:number>/', views.page_redirect, name='page_redirect'),
     path('', views.index, name='index'),
-    path('/<id>', views.page_redirect, name='page_redirect'),
     path('admin/', admin.site.urls),
 ]
