@@ -1,4 +1,6 @@
-# url_shortener
+# url_shortener  
+
+https://shorterurlchris.herokuapp.com/  
 
 This is a URL shortener written in Python using Django.  The URLs don't really come out that short given that the host URLs on heroku are pretty long, but you get the idea!
 
